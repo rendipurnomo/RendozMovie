@@ -45,8 +45,11 @@ export default function Login(){
                         </div>
                     </div>
                     <div className="grid space-y-[14px] mt-[30px]">
-                        <PrimaryButton 
+                        <Link href={route('prototype.dashboard')}>
+                        <PrimaryButton
+                        className="w-full" 
                         children="Start Watching" />
+                        </Link>
                         <Link href={route('prototype.register')}>
                         <SecondaryButton
                         className="w-full"

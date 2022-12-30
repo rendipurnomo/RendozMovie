@@ -55,8 +55,11 @@ export default function Register(){
                         </div>
                     </div>
                     <div className="grid space-y-[14px] mt-[30px]">
+                        <Link href={route('prototype.dashboard')}>
                         <PrimaryButton 
+                        className="w-full"
                         children="Sign Up" />
+                        </Link>
                         <Link href={route('prototype.login')}>
                         <SecondaryButton
                         className="w-full"
