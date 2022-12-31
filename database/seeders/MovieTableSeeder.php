@@ -40,7 +40,7 @@ class MovieTableSeeder extends Seeder
                 'category' => 'music',
                 'video_url' => 'https://www.youtube.com/watch?v=AyYtuePAB1A',
                 'thumbnail' => 'https://placeimg.com/640/480/tech',
-                'rating' => 4.9,
+                'rating' => 4.5,
                 'is_featured' => 1,
             ],
         ];

@@ -1,7 +1,7 @@
 import Sidebar from "@/Layouts/Autenticated/Sidebar";
 import Topbar from "@/Layouts/Autenticated/Topbar";
 
-export default function Autenticated({children}){
+export default function Autenticated({children, auth}){
     return (
         <>
         <div className="mx-auto max-w-screen hidden lg:block">
@@ -13,7 +13,7 @@ export default function Autenticated({children}){
         <div className="ml-[300px] px-[50px]">
             <div className="py-10 flex flex-col gap-[50px]">
             {/* START: Topbar */}
-            <Topbar />
+            <Topbar name={auth.user.name} />
             {/* END: Topbar */}
             <main>{children}</main>
                 </div>
