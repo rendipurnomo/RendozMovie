@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\User\DasboardController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\MovieController;
+use App\Http\Controllers\User\DasboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::redirect('/', '/login');
 
 Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function () {
     Route::get('/', [DasboardController::class, 'Index'])->name('Index');
+    Route::get('movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
 });
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
