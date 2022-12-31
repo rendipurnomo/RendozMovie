@@ -10,6 +10,6 @@ class MovieController extends Controller
 {
     public function show(Movie $movie)
     {
-        return inertia('Movie/show', ['movie' => $movie]);
+        return inertia('User/Dashboard/Movie/show', ['movie' => $movie]);
     }
 }
