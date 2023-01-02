@@ -1,8 +1,16 @@
 import React from 'react'
 import Autenticated from '@/Layouts/Autenticated/Index';
 import SubscriptionCard from '@/Components/SubscriptionCard';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function SubscriptionPlan({auth, subscriptionPlans}) {
+  const selectSubscription =id=>{
+    Inertia.post(
+      route("user.dashboard.subscriptionPlan.userSubscribe", {
+      subscriptionPlan: id,
+    })
+    );
+  }
   return (
     <Autenticated auth={auth}>
         <div className="flex flex-col items-center py-0">
@@ -23,10 +31,10 @@ export default function SubscriptionPlan({auth, subscriptionPlans}) {
                     durationInMounth={subscriptionPlan.active_period_in_mount}
                     features ={JSON.parse(subscriptionPlan.features)}
                     isPremium = {subscriptionPlan.name ==='Premium'}
+                    onSelectSubscription={()=> selectSubscription(subscriptionPlan.id)}
                     />
                     ))};
                 </div>
-                {/* /Pricing Card */}
             </div>
     </Autenticated>
   )

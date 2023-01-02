@@ -11,11 +11,11 @@ export default function SubscriptionCard({id, name,price, durationInMounth, feat
     className="flex flex-col gap-[30px] py-[30px] px-7 outline outline-1 outline-[#F1F1F1] rounded-[26px] text-black w-[300px] h-[max-content]">
     {/* Top Content: Name-Price */}
     <div>
-        <div className="text-sm mb-1">{name}</div>
+        <div className="mb-1 text-sm">{name}</div>
         <div className="text-[28px] font-bold">
             IDR {price.toLocaleString()}
         </div>
-        <p className="text-gray-1 text-xs font-light">/{durationInMounth} months</p>
+        <p className="text-xs font-light text-gray-1">/{durationInMounth} months</p>
     </div>
 
     {/* Mid Content: Benefits */}
@@ -34,7 +34,7 @@ export default function SubscriptionCard({id, name,price, durationInMounth, feat
     {/* Bottom: CTA Button */}
     <div onClick={onSelectSubscription}>
         <SecondaryButton
-        className='text-black border-black w-full'
+        className='w-full text-black border-black'
         children="Start Basic"
         />
     </div>
@@ -44,12 +44,12 @@ export default function SubscriptionCard({id, name,price, durationInMounth, feat
                         className="flex flex-col gap-6 py-4 px-7 outline outline-1 outline-[#F1F1F1] rounded-[26px] text-white w-[300px] bg-black">
 
                         {/* Ornament Icon */}
-                        <div className="bg-alerange rounded-full p-4 max-w-max">
+                        <div className="p-4 rounded-full bg-alerange max-w-max">
                             <img src="/icons/ic_star.svg" width="24" alt="" />
                         </div>
                         {/* Top Content: Name-Price */}
                         <div>
-                            <div className="text-sm mb-2">{name}</div>
+                            <div className="mb-2 text-sm">{name}</div>
                             <div className="text-[28px] font-bold">
                                 IDR {price.toLocaleString()}
                             </div>

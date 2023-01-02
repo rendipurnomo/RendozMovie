@@ -1,6 +1,7 @@
 import { Link } from "@inertiajs/inertia-react"
+import SubscriptionDetail from '@/layouts/Autenticated/SubscriptionDetail';
 
-export default function Sidebar(){
+export default function Sidebar({auth}){
     return (
         <aside className="fixed z-50 w-[300px] h-screen">
 
@@ -10,7 +11,7 @@ export default function Sidebar(){
                 </a>
                 <div className="links flex flex-col mt-[32px] h-full gap-[50px]">
                     <div>
-                        <div className="text-gray-1 text-sm mb-4">Menu</div>
+                        <div className="mb-4 text-sm text-gray-1">Menu</div>
                         <Link href="/" className="side-link active">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +40,7 @@ export default function Sidebar(){
                             </svg>
                             Downloads
                         </a>
-                        <a href="#!" className="side-link mb-0">
+                        <a href="#!" className="mb-0 side-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd"
@@ -49,7 +50,7 @@ export default function Sidebar(){
                         </a>
                     </div>
                     <div>
-                        <div className="text-gray-1 side-link mb-4">Others</div>
+                        <div className="mb-4 text-gray-1 side-link">Others</div>
                         <Link href={route('user.dashboard.subscriptionPlan.index')} className="side-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +76,7 @@ export default function Sidebar(){
                             </svg>
                             Your Profile
                         </a>
-                        <a href="sign_in.html" className="side-link mb-0">
+                        <a href="sign_in.html" className="mb-0 side-link">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd"
@@ -84,21 +85,12 @@ export default function Sidebar(){
                             Logout
                         </a>
                     </div>
-                    <div className="mt-0 pr-[24px]">
-                        <div className="p-5 bg-black rounded-[25px]">
-                            <img src="/icons/ic_star-rounded.svg" alt=""/>
-                            <div className="text-white text-md font-semibold mt-2 mb-2">
-                                For Greatest
-                            </div>
-                            <div className="text-white text-sm mb-2">
-                                12 of 30 hari
-                            </div>
-                            <div className="rounded-full w-full h-[6px] bg-[#333333]">
-                                <div className="rounded-full h-full w-9/12 bg-alerange"></div>
-                            </div>
-                        </div>
-                    </div>
-
+                    {auth.activePlan && <SubscriptionDetail 
+                    name={auth.activePlan.name}
+                    isPremium={auth.activePlan.name === 'Premium'} 
+                    remainingActiveDays={auth.activePlan.remainingActiveDays}
+                    activeDays={auth.activeDays}
+                    />}
                 </div>
             </div>
         </aside>

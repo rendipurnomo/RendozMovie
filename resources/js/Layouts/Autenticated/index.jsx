@@ -4,9 +4,9 @@ import Topbar from "@/Layouts/Autenticated/Topbar";
 export default function Autenticated({children, auth}){
     return (
         <>
-        <div className="mx-auto max-w-screen hidden lg:block">
+        <div className="hidden mx-auto max-w-screen lg:block">
         {/* START: Sidebar */}
-        <Sidebar />
+        <Sidebar auth={auth} />
         {/* END: Sidebar */}
 
         {/* START: Content */}
@@ -21,8 +21,8 @@ export default function Autenticated({children, auth}){
         
         {/* END: Content */}
         </div>
-        <div className="mx-auto px-4 w-full h-screen lg:hidden flex bg-black">
-        <div className="text-white text-2xl text-center leading-snug font-medium my-auto">
+        <div className="flex w-full h-screen px-4 mx-auto bg-black lg:hidden">
+        <div className="my-auto text-2xl font-medium leading-snug text-center text-white">
             Sorry, this page only supported on 1024px screen or above
         </div>
     </div>
